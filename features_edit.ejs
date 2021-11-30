@@ -1,0 +1,23 @@
+<%- include("partial_headers.ejs"); %>
+
+<h1>Single feature editor form</h1>
+
+<p><a href='/features/list'>Back to the list</a></p>
+<!-- body-parser ==> we cannot use multipart/form-data ==> no file uploads -->
+<form action='/features/update/<%= oneFeature.feat_id %>' method='post' 
+            enctype='application/x-www-form-urlencoded'>
+    <tr><td>Name:</td>
+        <td><input type='text' name='feat_name' value='<%= oneFeature.feat_name %>' /></td></tr>
+    <tr><td>Price:</td>
+        <td><input type='number' name='feat_price' value='<%= oneFeature.feat_price%>' /></td></tr>
+    <tr><td>Durability:</td>
+        <td><input type='number' name='feat_durability' value='<%= oneFeature.feat_durability %>' /></td></tr>
+    <tr><td>Installation cost</td>
+        <td><input type='number' name='feat_intallation_cost' value='<%= oneFeature.feat_intallation_cost %>' /></td></tr>
+    <tr><td>Rentability per year:</td>
+        <td><input type='number' name='feat_rentability_per_year ' value='<%= oneFeature.feat_rentability_per_year  %>' /></td></tr>
+    <tr><td colspan='2'> <input type='submit' value='SEND' /> </td></tr>
+</form>
+
+</body>
+</html>
