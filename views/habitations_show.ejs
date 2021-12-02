@@ -1,0 +1,19 @@
+<!-- display in a secure way: every active content is ESCAPED (as HTML entities...) -->
+<!-- Security problems: SQL Injection, XSS Cross Site Scripting  -->
+<%- include("partial_headers.ejs"); %>
+
+<h1>Single habitation Datasheet</h1>
+
+<p><a href='/habitations/list'>Back to the list</a></p>
+
+<table class="table table-striped table-bordered table-hover">
+    <tr><td>ID:</td><td> <%= oneHabitation.habitation_id %> </td></tr>
+    <tr><td>Type:</td><td> <%= oneHabitation.habitation_type %> </td></tr>
+    <tr><td>Price:</td><td> <%= oneHabitation.habitation_price %> </td></tr>
+    <tr><td>Size:</td><td> <%= oneHabitation.habitation_size %> </td></tr>
+    <tr><td>Location:</td><td> <%= oneHabitation.habitation_location %> </td></tr>
+    <tr><td>Sun exposure:</td><td> <%= oneHabitation.habitation_sun_exposure %> </td></tr>
+</table>
+
+</body>
+</html>
