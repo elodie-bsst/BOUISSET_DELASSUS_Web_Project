@@ -13,7 +13,7 @@ module.exports = {
             "feat_rentability_per_year": 0
         };
     },
-    async getAllFeatures(){ // TODO? move to brands.repository.js
+    async getAllFeatures(){
         try {
             conn = await pool.getConnection();
             sql = "SELECT * FROM features";
@@ -49,7 +49,7 @@ module.exports = {
         try {
             conn = await pool.getConnection();
             sql = "DELETE FROM features WHERE feat_id = ?";
-            const okPacket = await conn.query(sql, carId); // affectedRows, insertId
+            const okPacket = await conn.query(sql, featId); // affectedRows, insertId
             conn.end();
             console.log(okPacket);
             return okPacket.affectedRows;
