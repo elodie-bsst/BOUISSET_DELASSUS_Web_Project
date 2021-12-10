@@ -13,7 +13,7 @@ module.exports = {
             "habitation_sun_exposure": "XXXX"
         };
     },
-    async getHabitation(){ 
+    async getAllHabitation(){ 
         try {
             conn = await pool.getConnection();
             sql = "SELECT * FROM habitations";

@@ -17,7 +17,7 @@ function habitationRootAction(request, response) {
 }
 async function habitationListAction(request, response) {
     // response.send("LIST ACTION");
-    var habitations = await habitationRepo.getAllHabitations();
+    var habitations = await habitationRepo.getAllHabitation();
     // console.log(habitations);
     var flashMessage = request.session.flashMessage;
     request.session.flashMessage = "";
