@@ -9,11 +9,11 @@ DROP TABLE if exists features;
 
 CREATE TABLE features (
 	feat_id int auto_increment primary key,
-    feat_name varchar(100) NOT NULL,
-    feat_price int NOT NULL,
-    feat_durability int NOT NULL,
-    feat_intallation_cost int NOT NULL,
-    feat_rentability_per_year int NOT NULL
+    feat_name varchar(100),
+    feat_price int,
+    feat_durability int,
+    feat_intallation_cost int,
+    feat_rentability_per_year int
 );
 
 
@@ -21,8 +21,8 @@ CREATE TABLE features (
 
 CREATE TABLE companies (
 	company_id int auto_increment primary key,
-    company_name varchar(100) NOT NULL,
-    company_nb_employees int NOT NULL,
+    company_name varchar(100),
+    company_nb_employees int,
     company_location varchar(100),
     company_phone_number varchar(100),
     company_speciality int,
@@ -31,10 +31,10 @@ CREATE TABLE companies (
 
 CREATE TABLE habitations (
 	habitation_id int auto_increment primary key,
-    habitation_type varchar (100) NOT NULL,
-    habitation_size int NOT NULL,
-    habitation_price int NOT NULL,
-    habitation_location varchar(100) NOT NULL,
+    habitation_type varchar (100),
+    habitation_size int,
+    habitation_price int,
+    habitation_location varchar(100),
     habitation_sun_exposure varchar(100)
 );
 
@@ -103,6 +103,30 @@ SELECT * FROM features;
 SELECT * FROM companies;
 SELECT * FROM habitations;
 SELECT * FROM conn;
+ 
+DROP VIEW if exists AllData;
+CREATE VIEW AllData AS
+	SELECT habitation_type, habitation_size, habitation_price, habitation_location, 
+		ifnull(feat_name, '=NO EXTRA=') as featureName, 
+		ifnull(feat_price, '=NO EXTRA=') as featurePrice
+	FROM habitations 
+		LEFT JOIN conn ON habitation_id=conn_habitation
+		LEFT JOIN features ON feat_id = conn_feature;
+SELECT * FROM AllData;
+
+DROP VIEW if exists HabitationExtraPrices;    -- carId + sumExtraPrice
+DROP VIEW if exists HabitationTotalPrices;    -- cars.* + totatPrice
+SET sql_mode = 'ONLY_FULL_GROUP_BY';
+CREATE VIEW HabitationExtraPrices AS
+    SELECT conn_habitation, sum(feat_price) as sumExtraPrice, sum(feat_intallation_cost) as sumExtraPriceInst
+    FROM features INNER JOIN conn ON feat_id=conn_feature
+    GROUP BY conn_habitation;
+CREATE VIEW HabitationTotalPrices AS
+    SELECT habitations.*, 
+        habitation_price+ifnull(sumExtraPrice, 0)+ifnull(sumExtraPriceInst, 0) as totalPrice_hab_feat_instCost
+    FROM habitations LEFT JOIN HabitationExtraPrices ON (habitation_id=conn_habitation);
+SELECT * FROM HabitationTotalPrices;
+
     
 
 
