@@ -13,7 +13,7 @@ module.exports = {
             "company_speciality": 0
         };
     },
-    async getAllCompany(){ 
+    async getAllCompanies(){ 
         try {
             conn = await pool.getConnection();
             sql = "SELECT * FROM companies";
@@ -45,6 +45,7 @@ module.exports = {
             throw err; 
         }
     },
+	
     async delOneCompany(compId){ 
         try {
             conn = await pool.getConnection();
@@ -58,10 +59,10 @@ module.exports = {
             throw err; 
         }
     },
-    async addOneCar(compId){ 
+    async addOneCompany(compId){ 
         try {
             conn = await pool.getConnection();
-            sql = "INSERT INTO companies (company_id, company_name, company_nb_employees, company_location, company_phone_number, company_speciality) VALUES (NULL, ?, ?, ?, ?, ?, ?) ";
+            sql = "INSERT INTO companies (company_id, company_speciality) VALUES (NULL, ?) ";
             const okPacket = await conn.query(sql, compId); // affectedRows, insertId
             conn.end();
             console.log(okPacket);
@@ -76,7 +77,7 @@ module.exports = {
             conn = await pool.getConnection();
             sql = "UPDATE companies SET company_name=?, company_nb_employees=?, company_location=?, company_phone_number=?, company_speciality=? WHERE company_id=? "; // TODO: named parameters? :something
             const okPacket = await conn.query(sql, 
-                        [compId, compName, compEmployees, compLocation, compPhone, compSpeciality]);
+                        [compName, compEmployees, compLocation, compPhone, compSpeciality, compId]);
             conn.end();
             console.log(okPacket);
             return okPacket.affectedRows;

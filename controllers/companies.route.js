@@ -2,13 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const companyRepo = require('../utils/companies.repository');
+const featuresRepo=require('../utils/features.repository');
 
 router.get('/', companyRootAction);
 router.get('/list', companyListAction);
-router.get('/show/:companyId', companyShowAction);
-router.get('/del/:companyId', companyDelAction);
-router.get('/edit/:companyId', companyEditAction);
-router.post('/update/:companyId', companyUpdateAction);
+router.get('/show/:compId', companyShowAction);
+router.get('/del/:compId', companyDelAction);
+router.get('/edit/:compId', companyEditAction);
+router.post('/update/:compId', companyUpdateAction);
 
 // http://localhost:8000/companies
 function companyRootAction(request, response) {
@@ -26,15 +27,15 @@ async function companyListAction(request, response) {
 }
 async function companyShowAction(request, response) {
     // response.send("SHOW ACTION");
-    var oneCompany = await companyRepo.getOneCompany(request.params.companyId);
+    var oneCompany = await companyRepo.getOneCompany(request.params.compId);
     response.render("companies_show", { "oneCompany": oneCompany });
 }
 async function companyEditAction(request, response) {
     // response.send("EDIT ACTION");
-    var features = await companyRepo.getAllFeatures();
-    var companyId = request.params.companyId;
-    if (companyId!=="0")
-        var company = await companyRepo.getOneCompany(companyId);
+    var features = await featuresRepo.getAllFeatures();
+    var compId = request.params.compId;
+    if (compId!=="0")
+        var company = await companyRepo.getOneCompany(compId);
     else
         var company = companyRepo.getBlankCompany();
     response.render("companies_edit", { "oneCompany": company, "features": features });
@@ -42,15 +43,15 @@ async function companyEditAction(request, response) {
 async function companyDelAction(request, response) {
     // response.send("DEL ACTION");
     // TODO: remove extras for company, unless the company cannot be removed!!!
-    var numRows = await companyRepo.delOneCompany(request.params.companyId);
+    var numRows = await companyRepo.delOneCompany(request.params.compId);
     request.session.flashMessage = "ROWS DELETED: "+numRows;
     response.redirect("/companies/list");
 }
 async function companyUpdateAction(request, response) {
     // response.send("UPDATE ACTION");
-    var companyId = request.params.companyId;
-    if (companyId==="0") companyId = await companyRepo.addOneCompany(request.body.company_speciality);
-    var numRows = await companyRepo.editOneCompany(companyId, 
+    var compId = request.params.compId;
+    if (compId==="0") compId = await companyRepo.addOneCompany(request.body.company_speciality);
+    var numRows = await companyRepo.editOneCompany(compId, 
         request.body.company_name,
         request.body.company_nb_employees, 
         request.body.company_location, 
