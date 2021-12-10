@@ -9,11 +9,11 @@ module.exports = {
             "feat_name": "XXX",
             "feat_price": 0,
             "feat_durability": 0,
-            "feat_installation_cost": 0,
+            "feat_intallation_cost": 0,
             "feat_rentability_per_year": 0
         };
     },
-    async getAllFeatures(){
+    async getAllFeatures(){ 
         try {
             conn = await pool.getConnection();
             sql = "SELECT * FROM features";
@@ -31,7 +31,7 @@ module.exports = {
         try {
             conn = await pool.getConnection();
             
-            sql = "SELECT * FROM features WHERE feat_id = ?";
+            sql = "SELECT * FROM features WHERE feat_id=?";
             const rows = await conn.query(sql, featId);
             conn.end();
             console.log("ROWS FETCHED: "+rows.length);
@@ -48,7 +48,7 @@ module.exports = {
     async delOneFeature(featId){ 
         try {
             conn = await pool.getConnection();
-            sql = "DELETE FROM features WHERE feat_id = ?";
+            sql = "DELETE FROM features WHERE feat_id =?";
             const okPacket = await conn.query(sql, featId); // affectedRows, insertId
             conn.end();
             console.log(okPacket);
@@ -61,7 +61,7 @@ module.exports = {
     async addOneFeature(featId){ 
         try {
             conn = await pool.getConnection();
-            sql = "INSERT INTO features (feat_id, feat_name,feat_price,feat_durability,feat_installation_cost,feat_rentability_per_year) VALUES (NULL, ?, ?, ?, ?, ?, ?) ";
+            sql = "INSERT INTO features (feat_id) VALUES (NULL) ";
             const okPacket = await conn.query(sql, featId); // affectedRows, insertId
             conn.end();
             console.log(okPacket);
@@ -74,7 +74,7 @@ module.exports = {
     async editOneFeature(featId, featName, featPrice, featDurability, featInstCost, featRentability){ 
         try {
             conn = await pool.getConnection();
-            sql = "UPDATE features SET feat_name=?, feat_price=?, feat_durability=?, feat_installation_cost=?, feat_rentability_per_year=? WHERE feat_id=? "; // TODO: named parameters? :something
+            sql = "UPDATE features SET feat_name=?, feat_price=?, feat_durability=?, feat_intallation_cost=?, feat_rentability_per_year=? WHERE feat_id=? "; // TODO: named parameters? :something
             const okPacket = await conn.query(sql, 
                         [featName, featPrice, featDurability, featInstCost, featRentability, featId]);
             conn.end();

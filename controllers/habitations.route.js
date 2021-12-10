@@ -48,6 +48,7 @@ async function habitationDelAction(request, response) {
 async function habitationUpdateAction(request, response) {
     // response.send("UPDATE ACTION");
     var habitationId = request.params.habitationId;
+	if (habitationId==="0") habitationId = await habitationRepo.addOneHabitation(habitationId);
     var numRows = await habitationRepo.editOneHabitation(habitationId, 
         request.body.habitation_type, 
         request.body.habitation_size, 

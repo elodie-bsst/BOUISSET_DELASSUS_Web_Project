@@ -5,15 +5,15 @@ pool = require("../utils/db.js");
 module.exports = {
     getBlankHabitation(){ // defines the entity model
         return {
-            "habitation_id": "XXXX",
-            "habitation_type": "XXXX",
+            "habitation_id": "0",
+            "habitation_type": "XXX",
             "habitation_size": 0,
             "habitation_price": 0,
             "habitation_location": "XXXX",
-            "habitation_sun_exposure": "XXXX"
+            "habitation_sun_exposure": "XXXXX"
         };
     },
-    async getHabitation(){ 
+    async getAllHabitations(){ 
         try {
             conn = await pool.getConnection();
             sql = "SELECT * FROM habitations";
@@ -31,7 +31,7 @@ module.exports = {
         try {
             conn = await pool.getConnection();
             sql = "SELECT * FROM habitations WHERE habitation_id = ?";
-            const rows = await conn.query(sql, carId);
+            const rows = await conn.query(sql, habId);
             conn.end();
             console.log("ROWS FETCHED: "+rows.length);
             if (rows.length == 1) {
@@ -57,10 +57,10 @@ module.exports = {
             throw err; 
         }
     },
-    async addOneHabitation(habId){ 
+	async addOneHabitation(habId){ 
         try {
             conn = await pool.getConnection();
-            sql = "INSERT INTO habitation (habitation_id, habitation_type,habitation_size,habitation_price,habitation_location,habitation_sun_exposure) VALUES (NULL, ?, NULL,NULL, ?, ?) ";
+            sql = "INSERT INTO habitations (habitation_id) VALUES (NULL) ";
             const okPacket = await conn.query(sql, habId); // affectedRows, insertId
             conn.end();
             console.log(okPacket);
