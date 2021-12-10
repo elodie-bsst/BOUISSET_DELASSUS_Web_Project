@@ -17,7 +17,7 @@ function companyRootAction(request, response) {
 }
 async function companyListAction(request, response) {
     // response.send("LIST ACTION");
-    var companies = await companyRepo.getAllCompanies();
+    var companies = await companyRepo.getAllCompany();
     // console.log(companies);
     var flashMessage = request.session.flashMessage;
     request.session.flashMessage = "";
