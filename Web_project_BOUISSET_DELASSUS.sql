@@ -9,7 +9,7 @@ DROP TABLE if exists features;
 
 CREATE TABLE features (
 	feat_id int auto_increment primary key,
-    feat_name varchar(100),
+    feat_name varchar(100) DEFAULT NULL,
     feat_price int,
     feat_durability int,
     feat_intallation_cost int,
@@ -21,21 +21,21 @@ CREATE TABLE features (
 
 CREATE TABLE companies (
 	company_id int auto_increment primary key,
-    company_name varchar(100),
+    company_name varchar(100) DEFAULT NULL,
     company_nb_employees int,
-    company_location varchar(100),
-    company_phone_number varchar(100),
+    company_location varchar(100) DEFAULT NULL,
+    company_phone_number varchar(100) DEFAULT NULL,
     company_speciality int,
     CONSTRAINT fk_company_speciality FOREIGN KEY (company_speciality) REFERENCES features(feat_id)
 );
 
 CREATE TABLE habitations (
 	habitation_id int auto_increment primary key,
-    habitation_type varchar (100),
+    habitation_type varchar (100) DEFAULT NULL,
     habitation_size int,
     habitation_price int,
-    habitation_location varchar(100),
-    habitation_sun_exposure varchar(100)
+    habitation_location varchar(100) DEFAULT NULL,
+    habitation_sun_exposure varchar(100) DEFAULT NULL
 );
 
 
