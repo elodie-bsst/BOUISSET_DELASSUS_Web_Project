@@ -11,6 +11,10 @@ app.use(session({
     resave: false
 }));
 
+// add after SESSION
+const auth = require("./utils/users.auth");
+auth.initialization(app);
+
 app.listen(process.env.WEB_PORT,
     function() { console.log("Listening on "+process.env.WEB_PORT); }
 );
@@ -21,8 +25,10 @@ app.get('/', (req, res) => {
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+
 const bodyParser = require("body-parser");
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
+app.use("/menu", require("./controllers/menu.route"));
 
 app.use("/companies", require("./controllers/companies.route"));
 app.use("/habitations", require("./controllers/habitations.route"));
