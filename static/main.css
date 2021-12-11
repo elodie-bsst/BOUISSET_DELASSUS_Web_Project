@@ -1,0 +1,35 @@
+button #icon{
+    width:35px;
+    height:35px;
+    text-decoration: none;
+}
+
+img#icon2{
+    width:35px;
+    height:35px;
+}
+
+.credentials #p{
+    width:35px;
+    height:35px;
+}
+
+.credentials{
+    justify-content: center;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#bgcolor{
+    background-image: linear-gradient(LightCyan, LightSkyBlue);
+}
+
+table{
+    background-color: white;
+}

@@ -1,0 +1,62 @@
+<%- include("header.ejs"); %>
+
+<!-- about us profile pictures-->
+<div class="w3-row-padding" id="about">
+    <div class="w3-center w3-padding-64">
+        <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
+    </div>
+
+    <div class="w3-third w3-margin-bottom w3-center" style="margin-left:181px;">
+        <div class="w3-card-4">
+        <img src="/static/pp1.jpeg" alt="John" style="width:100%" >
+        <div class="w3-container" style="background-color: white;">
+            <h3>Elodie Bouisset</h3>
+            <p class="w3-opacity">CEO & Founder</p>
+            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+            <p><a href="mailto:elodie.bouisset@efrei.net"><button class="w3-button w3-light-grey w3-block">Contact</button></a></p>
+        </div>
+        </div>
+    </div>
+
+    <div class="w3-third w3-margin-bottom w3-center">
+        <div class="w3-card-4">
+        <img src="/static/pp2.jpg" alt="Mike" style="width:100%">
+        <div class="w3-container" style="background-color: white;">
+            <h3>Samuel Delassus</h3>
+            <p class="w3-opacity">CEO & Founder</p>
+            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+            <p><a href="mailto:samuel.delassus@efrei.net"><button class="w3-button w3-light-grey w3-block">Contact</button></a></p>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+<div class="w3-center w3-padding-64" id="contact">
+    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Contact Us</span>
+</div>
+
+<form class="w3-container" action="/about_us/send" target="_blank">
+<div class="w3-section">
+    <label>Name</label>
+    <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Name" required>
+</div>
+<div class="w3-section">
+    <label>Email</label>
+    <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Email" required>
+</div>
+<div class="w3-section">
+    <label>Subject</label>
+    <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Subject" required>
+</div>
+<div class="w3-section">
+    <label>Message</label>
+    <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Message" required>
+</div>
+<button type="submit" class="w3-button w3-block w3-black">Send</button>
+</form>
+<br><br><br><br><br><br>
+<%- include("footer.ejs"); %>
+
+</body>
+</html>
