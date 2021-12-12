@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="My MVC Web App">
-    <title>Hello, Log in</title>
-</head>
-<body>
+<%- include("header.ejs"); %>
 
 <!-- AFTER USER -->
 <hr/>     
@@ -20,6 +12,8 @@
 <a href="/menu/user">USERS ONLY</a> <br/>
 <a href="/menu/admin">ADMINS ONLY</a> <br/>
 <a href="/menu/protected">USER LEVEL DEPENDENT AUTO REDIRECT</a> <br/>
+
+<%- include("footer.ejs"); %>
 
 </body>
 </html>
