@@ -34,7 +34,6 @@ app.use("/companies", require("./controllers/companies.route"));
 app.use("/habitations", require("./controllers/habitations.route"));
 app.use("/features", require("./controllers/features.route"));
 app.use("/frontpage", require("./controllers/frontpage.route"));
-app.use("/login", require("./controllers/login.route"));
 app.use("/about_us", require("./controllers/about_us.route"));
 
 
