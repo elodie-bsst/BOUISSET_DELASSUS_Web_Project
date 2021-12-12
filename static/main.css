@@ -33,3 +33,7 @@ a:hover{
 table{
     background-color: white;
 }
+
+#triple-button {
+	background-color: white !important;
+}
