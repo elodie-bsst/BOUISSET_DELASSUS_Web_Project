@@ -19,11 +19,12 @@ function companyRootAction(request, response) {
 async function companyListAction(request, response) {
     // response.send("LIST ACTION");
     var companies = await companyRepo.getAllCompanies();
+	var features = await featuresRepo.getAllFeatures();
     // console.log(companies);
     var flashMessage = request.session.flashMessage;
     request.session.flashMessage = "";
     
-    response.render("companies_list", { "companies": companies, "flashMessage": flashMessage });
+    response.render("companies_list", { "companies": companies, "features": features, "flashMessage": flashMessage });
 }
 async function companyShowAction(request, response) {
     // response.send("SHOW ACTION");

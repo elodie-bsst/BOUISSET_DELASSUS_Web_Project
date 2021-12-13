@@ -19,7 +19,12 @@
     <tr>
         <td><%= c.company_id %></td>
         <td><%= c.company_name %></td>
-        <td><%= c.company_speciality %></td>
+        <td><% for (var f of features ) { %>
+				<% if (c.company_speciality == f.feat_id) { %>
+					<%= f.feat_name %> 
+					<% } %>
+				<% } %>
+		</td>
         <td><a href='/companies/show/<%= c.company_id %>'>Show</a></td>
         <td><a href='/companies/edit/<%= c.company_id %>'>Edit</a></td>
         <td><a href='/companies/del/<%= c.company_id %>'>Delete</a></td>
