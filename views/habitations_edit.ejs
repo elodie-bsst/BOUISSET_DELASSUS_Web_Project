@@ -1,8 +1,8 @@
 <%- include("header.ejs"); %>
 
-<h1>Edit your habitation</h1>
+<h1 id="txttitle">Edit your habitation</h1>
 
-<p><a href='/habitations/list'><button  class="w3-button w3-light-grey w3-block" style="width:25%; margin-left: 825px;">Back to the list</button></a></p>
+<p><a href='/habitations/list'><button  id="button"  class="w3-button w3-light-grey w3-block">Back to the list</button></a></p>
 <!-- body-parser ==> we cannot use multipart/form-data ==> no file uploads -->
 <form action='/habitations/update/<%= oneHabitation.habitation_id %>' method='post' 
             enctype='application/x-www-form-urlencoded'>

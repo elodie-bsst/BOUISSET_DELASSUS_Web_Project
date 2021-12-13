@@ -2,9 +2,9 @@
 <!-- Security problems: SQL Injection, XSS Cross Site Scripting  -->
 <%- include("header.ejs"); %>
 
-<h1>Feature Datasheet</h1>
+<h1 id="txttitle">Feature Datasheet</h1>
 
-<p><a href='/features/list'><button  class="w3-button w3-light-grey w3-block" style="width:25%; margin-left: 825px;">Back to the list</button></a></p>
+<p><a href='/features/list'><button  id="button"  class="w3-button w3-light-grey w3-block">Back to the list</button></a></p>
 
 <table class="table table-striped table-bordered table-hover">
     <tr><td>ID:</td><td> <%= oneFeature.feat_id %> </td></tr>
