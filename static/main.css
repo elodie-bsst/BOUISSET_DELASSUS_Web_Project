@@ -32,7 +32,7 @@ a:hover{
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 50%;
+  width: 25%;
 }
 
 .logoimage{
@@ -49,6 +49,7 @@ table{
     background-color: white;
     font-size: 2vmin;
 }
+
 
 /* button style */
 #button{
@@ -69,11 +70,11 @@ table{
     font-size: 6vmin;
     font:bold;
 }
-
+.mySlides {display:none;}
 /* paragraph title */
 #fptitle{
-    font-size: 5vmin;
-    font:bold;
+    font-size: 3vmin;
+    font-weight:bold;
 }
 
 /* paragraph */
@@ -83,7 +84,7 @@ table{
 
 /* paragraph text + about us names */
 #fpparagraph{
-    font-size: 4vmin;
+    font-size: 3vmin;
     font:bold;
 }
 

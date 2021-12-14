@@ -3,66 +3,37 @@
 <!-- Slideshow -->
 <div class="w3-container">
     <div class="w3-display-container mySlides">
-    <img id="images" src="/static/house1.jpg">
-    <div id="fptxt" class="w3-display-topleft w3-container w3-padding-32">
-        <span class="w3-white w3-padding-small w3-animate-bottom">New house</span>
-    </div>
-    </div>
-    <div class="w3-display-container mySlides">
-    <img id="images" src="/static/villa1.jpg">
-    <div id="fptxt" class="w3-display-topright w3-container w3-padding-32">
-        <span class="w3-white w3-padding-small w3-animate-bottom">New villa</span>
-    </div>
+        <img id="images" src="/static/house1.jpg">
+        <div id="fptxt" class="w3-display-topleft w3-container w3-padding-32">
+            <span class="w3-white w3-padding-small w3-animate-bottom">New house</span>
+        </div>
     </div>
     <div class="w3-display-container mySlides">
-    <img id="images" src="/static/loft1.jpg">
-    <div id="fptxt" class="w3-display-topleft w3-container w3-padding-32">
-        <span class="w3-white w3-padding-small w3-animate-bottom">New loft</span>
+        <img id="images" src="/static/villa1.jpg">
+        <div id="fptxt" class="w3-display-topright w3-container w3-padding-32">
+            <span class="w3-white w3-padding-small w3-animate-bottom">New villa</span>
+        </div>
     </div>
+    <div class="w3-display-container mySlides">
+        <img id="images" src="/static/loft1.jpg">
+        <div id="fptxt" class="w3-display-topleft w3-container w3-padding-32">
+            <span class="w3-white w3-padding-small w3-animate-bottom">New loft</span>
+        </div>
     </div>
 
     <!-- Slideshow next/previous buttons -->
     <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
-    <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left fa-2x w3-hover-text-teal"></i></div>
-    <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right fa-2x w3-hover-text-teal"></i></div>
-    
-    <div class="w3-center">
-        <span class="w3-button demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-        <span class="w3-button demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-        <span class="w3-button demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-    </div>
+        <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left fa-2x w3-hover-text-teal"></i></div>
+        <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right fa-2x w3-hover-text-teal"></i></div>
+        
+        <div class="w3-center">
+            <span class="w3-button demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-button demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-button demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+        </div>
     </div>
 </div>
-
-<!-- slideshow script -->
-<script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
-
-    function currentDiv(n) {
-        showDivs(slideIndex = n);
-    }
-
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demodots");
-        if (n > x.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = x.length} ;
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" w3-white", "");
-        }
-        x[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " w3-white";
-    }
-</script>
+<script src="/static/frontpage_script.js"></script>
 <br><br><br><br>
 <div class="w3-row w3-container">
     <div class="w3-left w3-padding-32">
