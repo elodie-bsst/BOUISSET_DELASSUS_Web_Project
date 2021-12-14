@@ -114,8 +114,8 @@ CREATE VIEW AllData AS
 		LEFT JOIN features ON feat_id = conn_feature;
 SELECT * FROM AllData;
 
-DROP VIEW if exists HabitationExtraPrices;    -- carId + sumExtraPrice
-DROP VIEW if exists HabitationTotalPrices;    -- cars.* + totatPrice
+DROP VIEW if exists HabitationExtraPrices; 
+DROP VIEW if exists HabitationTotalPrices;  
 SET sql_mode = 'ONLY_FULL_GROUP_BY';
 CREATE VIEW HabitationExtraPrices AS
     SELECT conn_habitation, sum(feat_price) as sumExtraPrice, sum(feat_intallation_cost) as sumExtraPriceInst

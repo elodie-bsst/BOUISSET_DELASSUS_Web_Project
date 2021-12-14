@@ -14,5 +14,5 @@ INSERT INTO users VALUES (NULL, now(), 'sam', 'sam@sam.sam', 'USER', sha2(concat
 INSERT INTO users VALUES (NULL, now(), 'elouser', 'elo@elo.elo', 'USER', sha2(concat(now(), 'elopass'), 224) );
 SELECT sleep(2);
 INSERT INTO users VALUES (NULL, now(), 'eloadmin', 'elo@elo.elo', 'ADMIN', sha2(concat(now(), 'elopass'), 224) );
--- TODO: !!! USE BETTER SALT / BCRYPT !!!
+
 SELECT * FROM users;
