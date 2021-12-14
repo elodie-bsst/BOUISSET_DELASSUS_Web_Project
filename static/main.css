@@ -27,11 +27,22 @@ a:hover{
     text-decoration: none;
 }
 
+/* logo frontpage */
+#logo{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 50%;
+}
+
+.logoimage{
+  background-color: #f1f1f1;
+}
 
 /* website background */
-#bgcolor{
+/* #bgcolor{
     background-image: linear-gradient(LightCyan, palegreen);
-}
+}*/ 
 
 /* table background */
 table{
@@ -39,10 +50,7 @@ table{
     font-size: 2vmin;
 }
 
-#triple-button {
-	background-color: white !important;
-}
-
+/* button style */
 #button{
     font-size: 3vmin;
     width: auto;
@@ -73,23 +81,48 @@ table{
     text-indent: 5%;
 }
 
-/* paragraph text */
+/* paragraph text + about us names */
 #fpparagraph{
     font-size: 4vmin;
     font:bold;
 }
 
+/* footer title */
 #txtfoot{
     font-size: 5vmin;
     font:bold;
 }
 
+/* about us + slider photos */
 #images{
     width: 100%;
 }
 
-#tablogin{
-    background-color: coral;
+
+/* about us information paragraph */
+#informationpg{
+  font-size: 3vmin;
+}
+
+#aboutustxt{
+  font-size: 3vmin;
+}
+
+/* content container */
+.w3-content{
+  margin:auto;
+  width: 75%;
+}
+
+/* login page form */
+.logform{
+  max-width: 50%;
+  margin-top: 12%;
+}
+
+/* login page */
+.logbtn{
+  margin-top: 5%;
 }
 
 /*navbar*/
@@ -117,8 +150,8 @@ table{
   }
   
   .topnav a.active {
-    background-color: coral;
-    color: black;
+    background-color: black;
+    color: white;
   }
   
   .topnav .icon {
