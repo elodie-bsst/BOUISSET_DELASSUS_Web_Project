@@ -3,9 +3,9 @@
 
 <h1 id="txttitle">Edit your feature</h1>
 
-<p><a href='/features/list'><button  id="button"  class="w3-button w3-light-grey w3-block">Back to the list</button></a></p>
-<!-- body-parser ==> we cannot use multipart/form-data ==> no file uploads -->
-<form action='/features/update/<%= oneFeature.feat_id %>' method='post' 
+<p><a href='/admin/list'><button  id="button"  class="w3-button w3-light-grey w3-block">Back to the list</button></a></p> <!-- redirection to admin list (views)-->
+
+<form action='/admin/features/update/<%= oneFeature.feat_id %>' method='post'
             enctype='application/x-www-form-urlencoded'>
 <table class="table table-striped table-bordered table-hover">            
     <tr><td>Name:</td>

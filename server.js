@@ -11,7 +11,6 @@ app.use(session({
     resave: false
 }));
 
-// add after SESSION
 const auth = require("./utils/users.auth");
 auth.initialization(app);
 
@@ -28,14 +27,14 @@ app.set("views", "views");
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
-app.use("/menu", require("./controllers/menu.route"));
 
-app.use("/companies", require("./controllers/companies.route"));
-app.use("/habitations", require("./controllers/habitations.route"));
-app.use("/features", require("./controllers/features.route"));
+app.use("/menu", require("./controllers/menu.route"));
 app.use("/frontpage", require("./controllers/frontpage.route"));
 app.use("/about_us", require("./controllers/about_us.route"));
-
+app.use("/admin", require("./controllers/admin.route"));
+app.use("/companiesUser", require("./controllers/companiesUser.route"));
+app.use("/featuresUser", require("./controllers/featuresUser.route"));
+app.use("/habitationsUser", require("./controllers/habitationsUser.route"));
 
 app.use("/static", express.static(__dirname + '/static'));
 

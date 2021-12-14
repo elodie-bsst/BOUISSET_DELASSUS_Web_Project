@@ -1,7 +1,6 @@
 // utils/companies.repository.js
 pool = require("../utils/db.js");
-// JS include = relative to CONTROLLERS 
-// VIEW include = relative to VIEWS
+
 module.exports = {
     getBlankCompany(){ // defines the entity model
         return {
@@ -21,9 +20,8 @@ module.exports = {
             conn.end();
             return rows;
         }
-        catch (err) {
-            // TODO: log/send error ... 
-            throw err; // return false ???
+        catch (err) { 
+            throw err; 
         }
     },
     
@@ -75,7 +73,7 @@ module.exports = {
     async editOneCompany(compId, compName, compEmployees, compLocation, compPhone, compSpeciality){ 
         try {
             conn = await pool.getConnection();
-            sql = "UPDATE companies SET company_name=?, company_nb_employees=?, company_location=?, company_phone_number=?, company_speciality=? WHERE company_id=? "; // TODO: named parameters? :something
+            sql = "UPDATE companies SET company_name=?, company_nb_employees=?, company_location=?, company_phone_number=?, company_speciality=? WHERE company_id=? "; 
             const okPacket = await conn.query(sql, 
                         [compName, compEmployees, compLocation, compPhone, compSpeciality, compId]);
             conn.end();

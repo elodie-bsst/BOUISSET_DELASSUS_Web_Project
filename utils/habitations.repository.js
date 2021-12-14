@@ -1,7 +1,6 @@
 // utils/habitations.repository.js
 pool = require("../utils/db.js");
-// JS include = relative to CONTROLLERS 
-// VIEW include = relative to VIEWS
+
 module.exports = {
     getBlankHabitation(){ // defines the entity model
         return {
@@ -21,9 +20,8 @@ module.exports = {
             conn.end();
             return rows;
         }
-        catch (err) {
-            // TODO: log/send error ... 
-            throw err; // return false ???
+        catch (err) { 
+            throw err; 
         }
     },
     
@@ -73,7 +71,7 @@ module.exports = {
     async editOneHabitation(habId, habType, habSize, habPrice, habLocation, habSunExpo){ 
         try {
             conn = await pool.getConnection();
-            sql = "UPDATE habitations SET habitation_type=?, habitation_size=?, habitation_price=?, habitation_location=?, habitation_sun_exposure=? WHERE habitation_id=? "; // TODO: named parameters? :something
+            sql = "UPDATE habitations SET habitation_type=?, habitation_size=?, habitation_price=?, habitation_location=?, habitation_sun_exposure=? WHERE habitation_id=? "; 
             const okPacket = await conn.query(sql, 
                         [habType, habSize, habPrice, habLocation, habSunExpo, habId]);
             conn.end();

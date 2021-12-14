@@ -20,6 +20,5 @@ module.exports = {
                reject(error);
            });
        });
-       // return pool.GetConnection();
    }
 };

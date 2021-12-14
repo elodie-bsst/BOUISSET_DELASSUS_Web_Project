@@ -18,10 +18,10 @@ module.exports = {
     return function (request, response, next) {
       if (request.isAuthenticated()) {
         if (role) {
-          if (role === request.user.user_role) { // TODO: RBAC/HIERARCHY
+          if (role === request.user.user_role) {
             return next();
           } else {
-            return response.end("401 Unautorized (bad user level)");
+            return response.end("401 Unautorized (bad user level)"); //do not have access rights
           }
         } else {
           return next();

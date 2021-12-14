@@ -1,7 +1,6 @@
 // utils/features.repository.js
 pool = require("../utils/db.js");
-// JS include = relative to CONTROLLERS 
-// VIEW include = relative to VIEWS
+
 module.exports = {
     getBlankFeature(){ // defines the entity model
         return {
@@ -22,8 +21,7 @@ module.exports = {
             return rows;
         }
         catch (err) {
-            // TODO: log/send error ... 
-            throw err; // return false ???
+            throw err; 
         }
     },
     
@@ -74,7 +72,7 @@ module.exports = {
     async editOneFeature(featId, featName, featPrice, featDurability, featInstCost, featRentability){ 
         try {
             conn = await pool.getConnection();
-            sql = "UPDATE features SET feat_name=?, feat_price=?, feat_durability=?, feat_intallation_cost=?, feat_rentability_per_year=? WHERE feat_id=? "; // TODO: named parameters? :something
+            sql = "UPDATE features SET feat_name=?, feat_price=?, feat_durability=?, feat_intallation_cost=?, feat_rentability_per_year=? WHERE feat_id=? "; 
             const okPacket = await conn.query(sql, 
                         [featName, featPrice, featDurability, featInstCost, featRentability, featId]);
             conn.end();
