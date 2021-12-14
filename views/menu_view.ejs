@@ -3,13 +3,14 @@
 <!-- AFTER USER -->
    
 <h1>Please Log In </h1>
-<a href="/admin/list"><button  id="button" class="w3-button w3-light-grey w3-block">Admin mode</button></a>
+<a href="/admin/list"><button  id="delbutton" class="w3-button w3-light-grey w3-block">Admin mode</button></a>
 <form class="logform" method="post" action="/menu/login">
     <input name="username" type="username" class="form-control" id="username" placeholder="Username" required>
     <input name="userpass" type="password" class="form-control" id="password" placeholder="Password" required>
     <button type="submit" class="btn btn-dark btn-block logbtn">Login</button>
     <a href="/menu/logout"><button type="button" class="btn btn-dark btn-block logbtn">Log out</button>
 </form>
+<script src= "/static/alert.js" defer></script>
 <%- include("footer.ejs"); %>
 
 </body>

@@ -64,6 +64,14 @@ table{
     margin-bottom: 5%;
 }
 
+#delbutton{
+  font-size: 3vmin;
+  width: auto;
+  float: right;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
 /* frontpage */
 /* text on slide */
 #fptxt{
