@@ -4,9 +4,8 @@ const router = express.Router();
 
 router.get('/', frontpageRootAction);
 
-// http://localhost:8000/menu
+// http://localhost:8000/frontpage
 function frontpageRootAction(request, response) {
-    //response.send("ROOT ACTION");
     response.render("frontpage");
 }
 
