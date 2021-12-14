@@ -50,6 +50,10 @@ table{
     font-size: 2vmin;
 }
 
+.margin{
+  margin-top: 6vmin;
+  margin-bottom: 20vmin;
+}
 
 /* button style */
 #button{

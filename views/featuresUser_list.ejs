@@ -3,24 +3,25 @@
 
 <h1 id="txttitle">Features</h1>
 
-<table class="table shadow table-striped table-bordered table-hover">
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Show</td>
-    </tr>
-    
-<% for (var f of features) { %>
-    <tr>
-        <td><%= f.feat_id %></td>
-        <td><%= f.feat_name %></td>
-        <td><%= f.feat_price %></td>
-        <td><a href='/featuresUser/show/<%= f.feat_id %>'>Show</a></td> <!-- see one feature in details-->
-    </tr>
-<% } %>
-</table>
-<br><br><br><br><br><br>
+<div class="margin">
+    <table class="table shadow table-striped table-bordered table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Show</td>
+        </tr>
+        
+    <% for (var f of features) { %>
+        <tr>
+            <td><%= f.feat_id %></td>
+            <td><%= f.feat_name %></td>
+            <td><%= f.feat_price %></td>
+            <td><a href='/featuresUser/show/<%= f.feat_id %>'>Show</a></td> <!-- see one feature in details-->
+        </tr>
+    <% } %>
+    </table>
+</div>
 <%- include("footer.ejs"); %>
 
 </body>

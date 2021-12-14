@@ -7,32 +7,34 @@
 
 <p><a href='/admin/companies/edit/0'><button  id="button" class="w3-button w3-light-grey w3-block">Add a new company</button></a></p>
 
-<table class="table shadow table-striped table-bordered table-hover">
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Speciality</td>
-        <td>Show</td>
-        <td>Edit</td>
-        <td>Delete</td>
-    </tr>
-    
-<% for (var c of companies) { %>
-    <tr>
-        <td><%= c.company_id %></td>
-        <td><%= c.company_name %></td>
-        <td><% for (var f of features ) { %>
-				<% if (c.company_speciality == f.feat_id) { %>
-					<%= f.feat_name %> 
-					<% } %>
-				<% } %>
-		</td>
-        <td><a href='/admin/companies/show/<%= c.company_id %>'>Show</a></td>
-        <td><a href='/admin/companies/edit/<%= c.company_id %>'>Edit</a></td>
-        <td><a href='/admin/companies/del/<%= c.company_id %>'>Delete</a></td>
-    </tr>
-<% } %>
-</table>
+<div class="margin">
+    <table class="table shadow table-striped table-bordered table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Speciality</td>
+            <td>Show</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        
+    <% for (var c of companies) { %>
+        <tr>
+            <td><%= c.company_id %></td>
+            <td><%= c.company_name %></td>
+            <td><% for (var f of features ) { %>
+                    <% if (c.company_speciality == f.feat_id) { %>
+                        <%= f.feat_name %> 
+                        <% } %>
+                    <% } %>
+            </td>
+            <td><a href='/admin/companies/show/<%= c.company_id %>'>Show</a></td>
+            <td><a href='/admin/companies/edit/<%= c.company_id %>'>Edit</a></td>
+            <td><a href='/admin/companies/del/<%= c.company_id %>'>Delete</a></td>
+        </tr>
+    <% } %>
+    </table>
+</div>
 
 <!-- Features list-->
 
@@ -40,27 +42,29 @@
 
 <p><a href='/admin/features/edit/0'><button  id="button"  class="w3-button w3-light-grey w3-block">Add a new feature</button></a></p>
 
-<table class="table shadow table-striped table-bordered table-hover">
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Show</td>
-        <td>Edit</td>
-        <td>Delete</td>
-    </tr>
-    
-<% for (var f of features) { %>
-    <tr>
-        <td><%= f.feat_id %></td>
-        <td><%= f.feat_name %></td>
-        <td><%= f.feat_price %></td>
-        <td><a href='/admin/features/show/<%= f.feat_id %>'>Show</a></td>
-        <td><a href='/admin/features/edit/<%= f.feat_id %>'>Edit</a></td>
-        <td><a href='/admin/features/del/<%= f.feat_id %>'>Delete</a></td>
-    </tr>
-<% } %>
-</table>
+<div class="margin">
+    <table class="table shadow table-striped table-bordered table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Show</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        
+    <% for (var f of features) { %>
+        <tr>
+            <td><%= f.feat_id %></td>
+            <td><%= f.feat_name %></td>
+            <td><%= f.feat_price %></td>
+            <td><a href='/admin/features/show/<%= f.feat_id %>'>Show</a></td>
+            <td><a href='/admin/features/edit/<%= f.feat_id %>'>Edit</a></td>
+            <td><a href='/admin/features/del/<%= f.feat_id %>'>Delete</a></td>
+        </tr>
+    <% } %>
+    </table>
+</div>
 
 <!-- habitations list-->
 
@@ -68,28 +72,30 @@
 
 <p><a href='/admin/habitations/edit/0'><button  id="button"  class="w3-button w3-light-grey w3-block">Add a new habitation</button></a></p>
 
-<table class="table shadow table-striped table-bordered table-hover">
-    <tr>
-        <td>ID</td>
-        <td>Type</td>
-        <td>Price</td>
-        <td>Show</td>
-        <td>Edit</td>
-        <td>Delete</td>
-    </tr>
-    
-<% for (var h of habitations) { %>
-    <tr>
-        <td><%= h.habitation_id %></td>
-        <td><%= h.habitation_type %></td>
-        <td><%= h.habitation_price %></td>
-        <td><a href='/admin/habitations/show/<%= h.habitation_id %>'>Show</a></td>
-        <td><a href='/admin/habitations/edit/<%= h.habitation_id %>'>Edit</a></td>
-        <td><a href='/admin/habitations/del/<%= h.habitation_id %>'>Delete</a></td>
-    </tr>
-<% } %>
-</table>
-<br><br><br><br><br><br>
+<div class="margin">
+    <table class="table shadow table-striped table-bordered table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Type</td>
+            <td>Price</td>
+            <td>Show</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        
+    <% for (var h of habitations) { %>
+        <tr>
+            <td><%= h.habitation_id %></td>
+            <td><%= h.habitation_type %></td>
+            <td><%= h.habitation_price %></td>
+            <td><a href='/admin/habitations/show/<%= h.habitation_id %>'>Show</a></td>
+            <td><a href='/admin/habitations/edit/<%= h.habitation_id %>'>Edit</a></td>
+            <td><a href='/admin/habitations/del/<%= h.habitation_id %>'>Delete</a></td>
+        </tr>
+    <% } %>
+    </table>
+</div>
+
 <%- include("footer.ejs"); %>
 
 </body>

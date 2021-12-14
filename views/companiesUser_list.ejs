@@ -3,29 +3,30 @@
 
 <h1 id="txttitle">Companies</h1>
 
-<table id="tab" class="table shadow table-striped table-bordered table-hover">
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Speciality</td>
-        <td>Show</td>
-    </tr>
-    
-<% for (var c of companies) { %>
-    <tr>
-        <td><%= c.company_id %></td>
-        <td><%= c.company_name %></td>
-        <td><% for (var f of features ) { %>
-				<% if (c.company_speciality == f.feat_id) { %>
-					<%= f.feat_name %> 
-					<% } %>
-				<% } %>
-		</td>
-        <td><a href='/companiesUser/show/<%= c.company_id %>'>Show</a></td> <!-- redirection to companiesUser_show-->
-    </tr>
-<% } %>
-</table>
-<br><br><br><br><br><br>
+<div class="margin">
+    <table id="tab" class="table shadow table-striped table-bordered table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Speciality</td>
+            <td>Show</td>
+        </tr>
+        
+    <% for (var c of companies) { %>
+        <tr>
+            <td><%= c.company_id %></td>
+            <td><%= c.company_name %></td>
+            <td><% for (var f of features ) { %>
+                    <% if (c.company_speciality == f.feat_id) { %>
+                        <%= f.feat_name %> 
+                        <% } %>
+                    <% } %>
+            </td>
+            <td><a href='/companiesUser/show/<%= c.company_id %>'>Show</a></td> <!-- redirection to companiesUser_show-->
+        </tr>
+    <% } %>
+    </table>
+</div>
 <%- include("footer.ejs"); %>
 
 </body>

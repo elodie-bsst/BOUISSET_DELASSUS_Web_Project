@@ -1,26 +1,27 @@
-<!-- views/habitationsUser_list.ejs -->
 <%- include("header.ejs"); %>
 
 <h1 id="txttitle">Habitations</h1>
 
-<table class="table shadow table-striped table-bordered table-hover">
-    <tr>
-        <td>ID</td>
-        <td>Type</td>
-        <td>Price</td>
-        <td>Show</td>
-    </tr>
-    
-<% for (var h of habitations) { %>
-    <tr>
-        <td><%= h.habitation_id %></td>
-        <td><%= h.habitation_type %></td>
-        <td><%= h.habitation_price %></td>
-        <td><a href='/habitationsUser/show/<%= h.habitation_id %>'>Show</a></td>
-    </tr>
-<% } %>
-</table>
-<br><br><br><br><br><br>
+<div class="margin">
+    <table class="table shadow table-striped table-bordered table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Type</td>
+            <td>Price</td>
+            <td>Show</td>
+        </tr>
+        
+    <% for (var h of habitations) { %>
+        <tr>
+            <td><%= h.habitation_id %></td>
+            <td><%= h.habitation_type %></td>
+            <td><%= h.habitation_price %></td>
+            <td><a href='/habitationsUser/show/<%= h.habitation_id %>'>Show</a></td>
+        </tr>
+    <% } %>
+    </table>
+</div>
+
 <%- include("footer.ejs"); %>
 
 </body>
