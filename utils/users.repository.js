@@ -19,7 +19,7 @@ module.exports = {
   async areValidCredentials(username, password) {
     try {
       conn = await pool.getConnection();
-      sql = "SELECT * FROM USERS WHERE user_name = ? AND user_pass = sha2(concat(user_created, ?), 224) "; // TODO: better salt+pw hash!
+      sql = "SELECT * FROM USERS WHERE user_name = ? AND user_pass = sha2(concat(user_created, ?), 224) ";
       const rows = await conn.query(sql, [username, password]);
       conn.end();
 
